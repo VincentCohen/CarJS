@@ -6,7 +6,8 @@ Some sort of 'game' which is to be defined later on.
 
 
 @TODO
-> Make cars driveable
-> Connect users using Node.js or some form of websockets
-> Play!
+-----
+- Make cars driveable
+- Connect users using Node.js or some form of websockets
+- Play!
 

@@ -1,0 +1,13 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+canvas {
+	border: 3px solid #e5e5e5;
+	margin: 30px auto;
+	position: absolute;
+	left: 50%;
+	margin-left: -400px;
+}

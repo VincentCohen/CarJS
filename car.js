@@ -17,28 +17,6 @@ function Car(player, color, image, x, y)
 	this.image 	= new Image();
 	this.image.src	= image;
 }
-// why the fuck dont this work
-//Car.prototype.drive = function()
-//{
-//    ctx.clearRect(0,0,800,600);
-//
-//    // before we screw with it
-//    ctx.save();
-//
-//    // move to the middle of where we want to draw our image
-//    ctx.translate(this.x, this.y);
-//
-//    ctx.rotate(this.angle * this.rotation);
-////    ctx.rotate(Math.PI / 180 * this.rotation);
-////    ctx.rotate(this.rotation);
-//
-//    ctx.drawImage(this.image, this.x, this.y);
-//
-//    ctx.rect(this.x, this.y, -(this.image.width/2), -(this.image.height/2));
-//
-//    // and restore the co-ords to how they were when we began
-//    ctx.restore();
-//}
 
 Car.prototype.drive = function()
 {

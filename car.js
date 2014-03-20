@@ -9,7 +9,6 @@ function Car(player, color, image, x, y)
 	this.color	= color;
     this.speed = 10;
     this.rotation = Math.PI/180;
-    this.isMoving = false;
 	this.x 	= x;
 	this.y	= y;
 	this.angle	= Math.PI / 180;
@@ -48,6 +47,8 @@ Car.prototype.drive = function()
     // before we screw with it
     ctx.save();
 
+    this.getSpeedAxis();
+
     // move to the middle of where we want to draw our image
     ctx.translate(this.x, this.y);
 
@@ -75,10 +76,16 @@ Car.prototype.steerRight = function()
 
 Car.prototype.goForward = function()
 {
-    this.y -= this.speed;
+    this.speed += 4;
 }
 
 Car.prototype.goBackwards = function()
 {
-    this.y += this.speed;
+    this.speed -= 4;
+}
+
+Car.prototype.getSpeedAxis = function()
+{
+    this.x = Math.sin(this.angle *  this.rotation) * this.speed;
+    this.y = Math.cos(this.angle *  this.rotation) * this.speed * -1;
 }

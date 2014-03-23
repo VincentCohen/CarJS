@@ -26,7 +26,6 @@ var keysPressed = {
 
 function movement(car)
 {
-    // steering and acceleration
     if (keysPressed.left == true){ car.steerLeft();}
     if (keysPressed.right == true){ car.steerRight();}
     if (keysPressed.up == true){ car.goForward();}
@@ -57,6 +56,9 @@ $(window).keyup(function(e)
     }
     //throw new Error ('endd..');
 });
+
+var canvas 	= document.getElementById('platform');
+var ctx 	= canvas.getContext('2d');
 
 var player = new Car('usr1', 'black', 'car_red_small.png', 100, 50);
 

@@ -1,8 +1,4 @@
 // http://jsfiddle.net/havok2905/tJnCh/18/light/
-
-var canvas 	= document.getElementById('platform');
-var ctx 	= canvas.getContext('2d');	
-
 function Car(player, color, image, x, y)
 {
     this.player	= player;
@@ -21,6 +17,38 @@ function Car(player, color, image, x, y)
     this.image.src	= image;
 }
 
+Car.prototype.checkBoundaries = function()
+{
+    var collided = false;
+    if (this.x >= canvas.width)
+    {
+        this.x = 0;
+        collided = true;
+    }
+
+    if (this.x < 0)
+    {
+        this.x = canvas.width;
+        collided = true;
+    }
+
+    if (this.y >= canvas.height){
+        this.y = 0
+        collided = true;
+    }
+
+    if (this.y < 0)
+    {
+        this.y = canvas.height;
+        collided = true;
+    }
+
+    if (collided)
+    {
+        this.speed = this.speed * 0.5;
+    }
+}
+
 Car.prototype.drive = function()
 {
     ctx.clearRect(0,0,800,600);
@@ -32,6 +60,8 @@ Car.prototype.drive = function()
 
     this.x += speedAxis.x;
     this.y += speedAxis.y;
+
+    this.checkBoundaries();
 
     // move to the middle of where we want to draw our image
     ctx.translate(this.x, this.y);

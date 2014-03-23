@@ -46,7 +46,6 @@ $(window).keydown(function(e)
 {
     if (keys[e.keyCode] !== 'undefined'){
         keysPressed[keys[e.keyCode]] = true;
-        //e.preventDefault();
     }
 });
 
@@ -55,7 +54,6 @@ $(window).keyup(function(e)
     // clear pressed key
     if (keys[e.keyCode] !== 'undefined'){
         keysPressed[keys[e.keyCode]] = false;
-        //e.preventDefault();
     }
     //throw new Error ('endd..');
 });

@@ -5,20 +5,20 @@ var ctx 	= canvas.getContext('2d');
 
 function Car(player, color, image, x, y)
 {
-	this.player	= player;
-	this.color	= color;
+    this.player	= player;
+    this.color	= color;
 
     this.speed = 0;
     this.rotation = Math.PI/180;
 
     this.x 	= x;
-	this.y	= y;
+    this.y	= y;
 
-	this.angle	= 0;//Math.PI / 180;
-	this.drift	= 0;
+    this.angle	= 0;//Math.PI / 180;
+    this.drift	= 0;
 
-	this.image 	= new Image();
-	this.image.src	= image;
+    this.image 	= new Image();
+    this.image.src	= image;
 }
 
 Car.prototype.drive = function()
@@ -34,7 +34,6 @@ Car.prototype.drive = function()
     this.y += speedAxis.y;
 
     // move to the middle of where we want to draw our image
-//    ctx.translate(this.x, this.y);
     ctx.translate(this.x, this.y);
 
     // angle from degrees to radians
@@ -49,14 +48,12 @@ Car.prototype.drive = function()
 
 Car.prototype.steerLeft = function()
 {
-    //this.x -= this.speed;
-    this.angle -= 3;//this.speed * 0.2;
+    this.angle -= 3;
 }
 
 Car.prototype.steerRight = function()
 {
-    //this.x += this.speed;
-    this.angle += 3;// this.speed * 0.2 * -1;
+    this.angle += 3;
 }
 
 Car.prototype.goForward = function()

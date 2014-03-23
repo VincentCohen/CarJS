@@ -24,8 +24,6 @@ var keysPressed = {
     down: false
 }
 
-var player = new Car('usr1', 'black', 'car_red.png', 200, 150);
-
 function movement(car)
 {
     // steering and acceleration
@@ -61,6 +59,8 @@ $(window).keyup(function(e)
     }
     //throw new Error ('endd..');
 });
+
+var player = new Car('usr1', 'black', 'car_red_small.png', 100, 50);
 
 var then = Date.now();
 play();

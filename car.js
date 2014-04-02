@@ -47,15 +47,14 @@ Car.prototype.checkBoundaries = function()
     {
         this.speed = this.speed * 0.5;
     }
+
+    var pxl = ctx.getImageData(this.x, this.y, 1, 1);
+
+    console.log(pxl.data[0] + ' ' + pxl.data[1] + ' ' + pxl.data[2] + ' ' + pxl.data[3] );
 }
 
 Car.prototype.draw = function()
 {
-    //ctx.clearRect(0,0,800,600);
-
-    // before we screw with it
-    ctx.save();
-
     var speedAxis = this.getSpeedAxis();
 
     this.x += speedAxis.x;

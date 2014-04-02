@@ -10,6 +10,18 @@ window.requestAnimFrame = (function(){
         };
 })();
 
+
+var canvas 	= document.getElementById('platform');
+var ctx 	= canvas.getContext('2d');
+
+var player      = new Car('usr1', 'black', 'car_red_small.png', 100, 50);
+var track       = new Image();
+var trackHit    = new Image();
+
+track.src = "track.png";
+trackHit.src = "track-hit.png";
+
+
 var keys = {
     38: 'up',
     40: 'down',
@@ -32,12 +44,21 @@ function movement(car)
     if (keysPressed.down == true){ car.goBackwards();}
 }
 
-function play()
+function draw(player)
 {
-    movement(player);
-    player.drive();
+    ctx.clearRect(0, 0, 800, 600);
 
-    requestAnimFrame(play);
+    ctx.drawImage(track, 800, 600);
+
+    // car drive
+ //   player.drive();
+}
+
+function frame()
+{
+//    movement(player);
+    draw(player);
+    requestAnimFrame(frame);
 }
 
 // key events
@@ -57,10 +78,5 @@ $(window).keyup(function(e)
     //throw new Error ('endd..');
 });
 
-var canvas 	= document.getElementById('platform');
-var ctx 	= canvas.getContext('2d');
-
-var player = new Car('usr1', 'black', 'car_red_small.png', 100, 50);
-
 var then = Date.now();
-play();
+frame();

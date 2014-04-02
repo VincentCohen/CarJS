@@ -49,9 +49,9 @@ Car.prototype.checkBoundaries = function()
     }
 }
 
-Car.prototype.drive = function()
+Car.prototype.draw = function()
 {
-    ctx.clearRect(0,0,800,600);
+    //ctx.clearRect(0,0,800,600);
 
     // before we screw with it
     ctx.save();

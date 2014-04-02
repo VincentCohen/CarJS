@@ -47,16 +47,18 @@ function movement(car)
 function draw(player)
 {
     ctx.clearRect(0, 0, 800, 600);
+    ctx.drawImage(trackHit, 0, 0);
+    ctx.drawImage(track, 0, 0);
 
-    ctx.drawImage(track, 800, 600);
+    ctx.save();
 
     // car drive
- //   player.drive();
+    player.draw();
 }
 
 function frame()
 {
-//    movement(player);
+    movement(player);
     draw(player);
     requestAnimFrame(frame);
 }

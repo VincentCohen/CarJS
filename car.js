@@ -50,7 +50,10 @@ Car.prototype.checkBoundaries = function()
 
     var pxl = ctx.getImageData(this.x, this.y, 1, 1);
 
-    console.log(pxl.data[0] + ' ' + pxl.data[1] + ' ' + pxl.data[2] + ' ' + pxl.data[3] );
+    if (pxl.data[0] === 0) {}
+    if (pxl.data[1] === 0) {}
+    if (pxl.data[2] === 0) {}
+    if (pxl.data[3] === 0) {}
 }
 
 Car.prototype.draw = function()

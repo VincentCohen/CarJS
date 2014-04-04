@@ -14,13 +14,13 @@ window.requestAnimFrame = (function(){
 // App settings
 var canvas 	= document.getElementById('platform');
 var ctx 	= canvas.getContext('2d');
-var player      = new Car('usr1', 'black', 'car_red_small.png', 100, 50);
+var player      = new Car('usr1', 'black', 'car_red_small.png', 180, 100);
 var track       = new Image();
 var trackHit    = new Image();
 
-track.src = "track_test.png";
+track.src = "track2.png";
 track.loaded = false;
-trackHit.src = "track-hit.png";
+trackHit.src = "track-hit2.png";
 trackHit.loaded = false;
 
 track.onload = function()
@@ -63,9 +63,9 @@ function movement(car)
 
 function draw(player)
 {
-//    ctx.clearRect(0, 0, canvas.width, canvas.height);
-//    ctx.drawImage(track, 0, 0);
-//    ctx.save();
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(track, 0, 0);
+    ctx.save();
 
     // car frame functions
     player.frame();

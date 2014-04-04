@@ -103,12 +103,12 @@ Car.prototype.checkBoundaries = function()
             var collisionPoint = this.collisionPoints[key];
             if (this.getCollision(collisionPoint.x, collisionPoint.y, 1, 1))
             {
-                console.log('Collided ' + key);
+//                console.log('Collided ' + key);
 
 //                this.x = this.x *-1;
 //                this.y = this.y *-1;
 
-                this.speed = this.speed * 0.7;
+                this.speed = this.speed * 0.895;
 
             }
         }
@@ -159,7 +159,7 @@ Car.prototype.getCollision = function(x, y, px,py)
     // only check imagedata if not colliding with boundaries
     if (y > 0 && y < canvas.height && x > 0 && x < canvas.width)
     {
-        var pxl = ctx.getImageData(x, y, px, py);
+        var pxl = ctx.getImageData(x, y, 1, 1);// px + py image width + height??
 
         if (pxl.data[0] === 0)
             res = true;
@@ -172,9 +172,9 @@ Car.prototype.getCollision = function(x, y, px,py)
 
         if (res == true)
         {
-            console.log(pxl.data[0]);
-            console.log(pxl.data[1]);
-            console.log(pxl.data[2]);
+//            console.log(pxl.data[0]);
+//            console.log(pxl.data[1]);
+//            console.log(pxl.data[2]);
         }
     }
 

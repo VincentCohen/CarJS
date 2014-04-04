@@ -11,15 +11,27 @@ window.requestAnimFrame = (function(){
 })();
 
 
+// App settings
 var canvas 	= document.getElementById('platform');
 var ctx 	= canvas.getContext('2d');
-
 var player      = new Car('usr1', 'black', 'car_red_small.png', 100, 50);
 var track       = new Image();
 var trackHit    = new Image();
 
-track.src = "track.png";
+track.src = "track_test.png";
+track.loaded = false;
 trackHit.src = "track-hit.png";
+trackHit.loaded = false;
+
+track.onload = function()
+{
+    track.loaded = true;
+}
+
+trackHit.onload = function()
+{
+    trackHit.loaded = true;
+}
 
 
 var keys = {
@@ -49,20 +61,22 @@ function draw(player)
     ctx.clearRect(0, 0, 800, 600);
 
     ctx.drawImage(trackHit, 0, 0);
-
- //       ctx.drawImage(track, 0, 0);
-
+//    ctx.drawImage(track, 0, 0);
 
     ctx.save();
 
-    // car drive
-    player.draw();
+    // car frame functions
+    player.frame();
 }
 
 function frame()
 {
-    movement(player);
-    draw(player);
+    if (trackHit.loaded && track.loaded)
+    {
+        movement(player);
+        draw(player);
+    }
+
     requestAnimFrame(frame);
 }
 
@@ -84,4 +98,5 @@ $(window).keyup(function(e)
 });
 
 var then = Date.now();
+
 frame();

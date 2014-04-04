@@ -54,16 +54,18 @@ function movement(car)
     if (keysPressed.right == true){ car.steerRight();}
     if (keysPressed.up == true){ car.goForward();}
     if (keysPressed.down == true){ car.goBackwards();}
+
+    // draw hitmap before track is drawn
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(trackHit, 0, 0);
+    ctx.save();
 }
 
 function draw(player)
 {
-    ctx.clearRect(0, 0, 800, 600);
-
-    ctx.drawImage(trackHit, 0, 0);
+//    ctx.clearRect(0, 0, canvas.width, canvas.height);
 //    ctx.drawImage(track, 0, 0);
-
-    ctx.save();
+//    ctx.save();
 
     // car frame functions
     player.frame();

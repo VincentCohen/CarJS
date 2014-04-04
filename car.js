@@ -101,11 +101,15 @@ Car.prototype.checkBoundaries = function()
         for (var key in this.collisionPoints)
         {
             var collisionPoint = this.collisionPoints[key];
-            if (this.getCollision(collisionPoint.x, collisionPoint.y, 4, 4))
+            if (this.getCollision(collisionPoint.x, collisionPoint.y, 1, 1))
             {
-                console.log(key);
-//                alert('Ooppps.. you collided!');
-                debugger;
+                console.log('Collided ' + key);
+
+//                this.x = this.x *-1;
+//                this.y = this.y *-1;
+
+                this.speed = this.speed * 0.7;
+
             }
         }
     }
